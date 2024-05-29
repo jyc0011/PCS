@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"/>
+<body>
+
+<div class="container">
+
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div>
+        <form enctype="multipart/form-data" id="uploadForm">
+            <input id="imageInput" required type="file">
+            <input id="signatureInput1" required type="file">
+            <input id="signatureInput2" required type="file">
+            <input id="partyA" placeholder="Enter Party A's Name" required type="text">
+            <input id="partyB" placeholder="Enter Party B's Name" required type="text">
+            <button type="submit">Upload and Process</button>
+        </form>
+        <div id="preview"></div>
+        <script src="js/upload.js"></script>
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+
+</div> <!-- /container -->
+
+</body>
+<script>
+
+</script>
+</html>

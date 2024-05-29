@@ -21,7 +21,7 @@ public class ContractController {
         return "contract/contract";  // src/main/resources/templates/contract/contract.html
     }
 
-    @PostMapping("/api/processContract")
+    @PostMapping("/contract/execute")
     public ResponseEntity<?> processContract(@RequestParam("image") MultipartFile image,
                                              @RequestParam("signature1") MultipartFile signature1,
                                              @RequestParam("signature2") MultipartFile signature2,

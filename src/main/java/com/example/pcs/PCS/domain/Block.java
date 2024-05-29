@@ -1,11 +1,11 @@
 package com.example.pcs.PCS.domain;
 
-import lombok.Data;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
+
 @Data
 @Entity
 public class Block {
@@ -18,7 +18,8 @@ public class Block {
     private String partyB;
 
     // No-arg constructor
-    public Block() {}
+    public Block() {
+    }
 
     // Constructor with parameters
     public Block(String hash, String partyA, String partyB) {

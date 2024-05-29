@@ -20,7 +20,7 @@ public class CheckController {
         return "check/check";  // src/main/resources/templates/check/check.html
     }
 
-    @PostMapping("/api/verifyContract")
+    @PostMapping("/check/verify")
     public ResponseEntity<?> verifyContract(@RequestParam("certificate") MultipartFile certificate,
                                             @RequestParam("partyA") String partyA,
                                             @RequestParam("partyB") String partyB) {

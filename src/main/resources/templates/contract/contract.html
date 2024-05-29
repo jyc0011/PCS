@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header"/>
+<head th:replace="~{fragments/header :: header}"></head>
 <body>
 
 <div class="container">
 
-    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
     <div>
         <form enctype="multipart/form-data" id="uploadForm">
             <input id="imageInput" required type="file">
@@ -16,12 +16,10 @@
             <button type="submit">Upload and Process</button>
         </form>
         <div id="preview"></div>
-        <script src="js/upload.js"></script>
+        <script src="/js/upload.js"></script>
     </div>
-    <div th:replace="fragments/footer :: footer"/>
-
+    <div th:insert="~{fragments/footer :: footer}"></div>
 </div> <!-- /container -->
-
 </body>
 <script>
 

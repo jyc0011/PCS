@@ -1,5 +1,68 @@
 <!DOCTYPE html>
-<html lang="" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="">
 <div class="footer" th:fragment="footer">
-    <p>&copy; Hello Shop V2</p>
+    <div class="footer-first-area">
+        <div class="footer-first-first">
+            <div class="footer-title">PCS</div>
+            <div class="footer-content">MADE BY PCS<br/>2024 항공대학교<br/>ICT 메이커톤 시제품</div>
+            <div class="footer-social-section">
+                <a href="https://www.facebook.com/" target="_blank" th:href="@{https://www.facebook.com/}" class="footer__social">
+                    <i class="ri-facebook-box-fill"></i>
+                </a>
+                <a href="https://twitter.com/" target="_blank" th:href="@{https://twitter.com/}" class="footer__social">
+                    <i class="ri-twitter-fill"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" th:href="@{https://www.instagram.com/}" class="footer__social">
+                    <i class="ri-instagram-fill"></i>
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" th:href="@{https://www.youtube.com/}" class="footer__social">
+                    <i class="ri-youtube-fill"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-first-second">
+            <div class="footer-title">About PCS</div>
+            <div class="footer-content">
+                <ul>
+                    <li><a href="" class="something">홈</a></li>
+                    <li><a href="" class="something">계약</a></li>
+                    <li><a href="" class="something">인증</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-first-third">
+            <div class="footer-title">ABOUT</div>
+            <div class="footer-content">
+                <ul>
+                    <li><a href="" class="something">WHY PCS?</a></li>
+                    <li><a href="" class="something">MEMBER</a></li>
+                    <li><a href="" class="something">GITHUB</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-first-4th">
+            <div class="footer-title">Support</div>
+            <div class="footer-content">
+                <ul>
+                    <li><a href="https://www.naver.com" class="something">자주 묻는 질문</a></li>
+                    <li><a href="https://www.daum.net" class="something">지원 센터</a></li>
+                    <li><a href="https://www.nate.com" class="something">문의하기</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-second-area">
+        <div class="footer-second-left">
+            © 2024 KAU ICT MAKE-A-Thon Team PCS. All rights reserved.
+        </div>
+        <div class="footer-second-right" style="display: flex">
+            <div class="footer-TermsNAgreements"><a
+                    href="https://youtu.be/9PfIi4nXJ6E?si=VoHRlilst2YOdQiP" style="font-size: 14px;"
+                    class="something">Terms & Agreements</a></div>
+            <div class="footer-PrivacyPolicy" style="margin-left: 30px"><a
+                    href="https://youtu.be/Eb-JAjWSxkI?si=g6xiT8-0tVViOcT2" style="font-size: 14px;"
+                    class="something">Privacy Policy</a></div>
+        </div>
+    </div>
 </div>
+</html>

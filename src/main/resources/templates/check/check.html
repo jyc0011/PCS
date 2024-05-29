@@ -1,22 +1,22 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header :: header"/>
+<head th:replace="~{fragments/header :: header}"></head>
 <body>
 
 <div class="container">
 
-    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
     <div>
         <form id="verifyForm">
             <input id="certificateInput" required type="file">
-            <input id="partyA" placeholder="Enter Party A's Name" required type="text">
-            <input id="partyB" placeholder="Enter Party B's Name" required type="text">
+            <label for="partyA"></label><input id="partyA" placeholder="Enter Party A's Name" required type="text">
+            <label for="partyB"></label><input id="partyB" placeholder="Enter Party B's Name" required type="text">
             <button type="submit">Verify Contract</button>
         </form>
         <div id="verificationResult"></div>
-        <script src="js/verify.js"></script>
+        <script src="/js/verify.js"></script>
     </div>
-    <div th:replace="fragments/footer :: footer"/>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 
 </div> <!-- /container -->
 

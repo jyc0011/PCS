@@ -1,0 +1,191 @@
+.footer {
+    margin-top: 30px;
+    width: 100%;
+    background-color: #724EBF;
+    height: 350px;
+}
+
+.footer-first-area,
+.footer-second-area {
+    margin: 0 auto;
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-second-area {
+    margin-top: 30px;
+}
+
+.footer-first-first {
+    width: calc((1200px / 4) - (10px * 3 / 4));
+    /* Adjust width considering margins */
+    height: 190px;
+}
+
+.footer-first-second,
+.footer-first-third,
+.footer-first-4th {
+    width: calc((1200px / 4) - (10px * 3 / 4));
+    /* Same adjustment as above */
+    height: 190px;
+}
+
+.footer-first-second > .footer-content,
+.footer-first-third > .footer-content,
+.footer-first-4th > .footer-content {
+    margin: 0 auto;
+}
+
+.footer-title {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+.footer-section ul,
+.footer-section li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* Remove bullet points */
+}
+
+.footer-section li {
+    margin-bottom: 12px;
+}
+
+.footer-content,
+.footer-second-left{
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.footer-social-section {
+    margin-top: 20px;
+}
+
+.footer__social {
+    font-size: 1.25rem;
+}
+
+.footer-first-area {
+    padding-top: 60px;
+}
+
+.footer__social,
+.footer__social:hover,
+.footer__social:link,
+.footer__social:visited,
+.footer__social:active,
+.something,
+.something:hover,
+.something:link,
+.something:visited,
+.something:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #F2F6FF;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Header and Navigation Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.nav {
+    list-style-type: none;
+}
+
+.nav li {
+    display: inline;
+    margin-left: 10px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #3e2a6b;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+.text-muted {
+    color: #000000;
+}
+
+/* Form Styles */
+form {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #F2CA52;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #D9BA82;
+}
+
+/* Utility Classes */
+.pull-right {
+    float: right;
+}
+
+/* Preview Box */
+#preview {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px dashed #ccc;
+    background: #F2F6FF;
+    border-radius: 5px;
+}

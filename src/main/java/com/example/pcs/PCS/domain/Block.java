@@ -2,6 +2,7 @@ package com.example.pcs.PCS.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
 import java.util.List;
 
 @Data
@@ -31,7 +32,7 @@ public class Block {
     // Constructor with parameters
     public Block(int index, String blockHash, long timestamp, String proof, String prevHash, List<Transaction> transactions, String merkleRoot, String partyA, String partyB) {
         this.bIndex = index;
-        this.blockHash=blockHash;
+        this.blockHash = blockHash;
         this.timestamp = timestamp;
         this.proof = proof;
         this.prevHash = prevHash;

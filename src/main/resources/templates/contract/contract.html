@@ -8,11 +8,11 @@
     <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
     <div>
         <form enctype="multipart/form-data" id="uploadForm">
-            <input id="imageInput" type="file" name="image" required>
-            <input id="signatureInput1" type="file" name="signature1" required>
-            <input id="signatureInput2" type="file" name="signature2" required>
-            <input id="partyA" placeholder="Enter Party A's Name" required type="text" name="partyA">
-            <input id="partyB" placeholder="Enter Party B's Name" required type="text" name="partyB">
+            <input id="imageInput" name="image" required type="file">
+            <input id="signatureInput1" name="signature1" required type="file">
+            <input id="signatureInput2" name="signature2" required type="file">
+            <input id="partyA" name="partyA" placeholder="Enter Party A's Name" required type="text">
+            <input id="partyB" name="partyB" placeholder="Enter Party B's Name" required type="text">
             <button type="submit">Upload and Process</button>
         </form>
         <div id="preview"></div>

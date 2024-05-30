@@ -25,9 +25,9 @@ public class ContractService {
         try {
             byte[] compositeImage = ImageUtil.composeImage(imageFile, signature1, signature2, partyA, partyB);
             String base64Image = Base64.getEncoder().encodeToString(compositeImage);
-            String imageHash = hashImage(base64Image.getBytes());
+            String imageHash = hashImage(compositeImage);
             Transaction transaction = new Transaction(partyA, partyB, imageHash);
-            Block newBlock = blockService.createBlock(Arrays.asList(transaction),partyA, partyB);
+            Block newBlock = blockService.createBlock(Arrays.asList(transaction), partyA, partyB);
             return new ImageCompositionResult(base64Image, imageHash, newBlock);
         } catch (Exception e) {
             e.printStackTrace();

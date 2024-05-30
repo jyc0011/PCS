@@ -3,7 +3,6 @@ package com.example.pcs.PCS.service;
 import com.example.pcs.PCS.domain.Block;
 import com.example.pcs.PCS.domain.Transaction;
 import com.example.pcs.PCS.repository.BlockRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,7 @@ public class BlockService {
         String prevHash = getPreviousHash();
         String proof = calculateProofOfWork(prevHash);
         String merkleRoot = calculateMerkleRoot(transactions);
-        String blockHash=hashBlock(index, timestamp, proof, prevHash, merkleRoot);
+        String blockHash = hashBlock(index, timestamp, proof, prevHash, merkleRoot);
         Block block = new Block(index, blockHash, timestamp, proof, prevHash, transactions, merkleRoot, partyA, partyB);
         return blockRepository.save(block);
     }
@@ -81,7 +80,7 @@ public class BlockService {
             newTreeLayer = new ArrayList<>();
             for (int i = 0; i < treeLayer.size(); i += 2) {
                 String left = treeLayer.get(i);
-                String right = i+1 < treeLayer.size() ? treeLayer.get(i+1) : left;
+                String right = i + 1 < treeLayer.size() ? treeLayer.get(i + 1) : left;
                 newTreeLayer.add(hash(left + right));
             }
             treeLayer = newTreeLayer;
@@ -89,6 +88,7 @@ public class BlockService {
 
         return treeLayer.size() == 1 ? treeLayer.get(0) : "";
     }
+
     private String hashBlock(int index, long timestamp, String proof, String prevHash, String merkleRoot) {
         String input = index + timestamp + proof + prevHash + merkleRoot;
         return hash(input);

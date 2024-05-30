@@ -4,17 +4,9 @@ import lombok.Data;
 
 @Data
 public class VerificationResponse {
-    private boolean isMatch;
+    private boolean match;
 
-    public VerificationResponse(boolean isMatch) {
-        this.isMatch = isMatch;
-    }
-
-    public boolean isMatch() {
-        return isMatch;
-    }
-
-    public void setMatch(boolean match) {
-        isMatch = match;
+    public VerificationResponse(boolean match) {
+        this.match = match;
     }
 }

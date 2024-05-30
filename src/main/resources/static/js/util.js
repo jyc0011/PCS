@@ -21,13 +21,13 @@ scrollToTopBtn.style.padding = '10px 15px';
 scrollToTopBtn.style.border = 'none'; // 테두리 없음
 scrollToTopBtn.style.borderRadius = '5px'; // 둥근 모서리
 scrollToTopBtn.onclick = function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
-scrollToTopBtn.onmouseover = function() {
+scrollToTopBtn.onmouseover = function () {
     this.style.backgroundColor = 'rgb(255,237,196)';
 };
-scrollToTopBtn.onmouseout = function() {
+scrollToTopBtn.onmouseout = function () {
     this.style.backgroundColor = 'rgb(255,255,255)';
 };
 

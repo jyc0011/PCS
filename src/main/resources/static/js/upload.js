@@ -4,7 +4,7 @@ document.getElementById('uploadForm').onsubmit = function (event) {
 
     console.log("폼 데이터 디버깅:");
     for (var pair of formData.entries()) {
-        console.log(pair[0]+ ', ' + pair[1]);
+        console.log(pair[0] + ', ' + pair[1]);
     }
 
     fetch('/contract/execute', {

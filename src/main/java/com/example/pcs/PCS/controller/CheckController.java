@@ -21,10 +21,11 @@ public class CheckController {
     }
 
     @PostMapping("/check/verify")
-    public ResponseEntity<?> verifyContract(@RequestParam("certificate") MultipartFile certificate,
-                                            @RequestParam("partyA") String partyA,
-                                            @RequestParam("partyB") String partyB) {
-        boolean isMatch = checkService.verifyContract(certificate, partyA, partyB);
-        return ResponseEntity.ok().body(new VerificationResponse(isMatch));
+    public ResponseEntity<VerificationResponse> verifyContract(
+            @RequestParam("certificate") MultipartFile certificate,
+            @RequestParam("image") MultipartFile image) {
+        boolean isMatch = checkService.verifyContract(certificate, image);
+        return ResponseEntity.ok(new VerificationResponse(isMatch));
     }
 }
+

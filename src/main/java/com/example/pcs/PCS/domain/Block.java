@@ -40,6 +40,7 @@ public class Block {
         this.partyA = partyA;
         this.partyB = partyB;
     }
+
     public Object getContractHash() {
         return null;
     }

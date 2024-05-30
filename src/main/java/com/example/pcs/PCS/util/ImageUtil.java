@@ -21,46 +21,53 @@ public class ImageUtil {
         int imageWidth = image.getWidth();
         int imageHeight = image.getHeight();
 
-        // 서명의 최대 높이를 계산합니다.
-        int maxSigHeight = Math.max(sig1.getHeight(), sig2.getHeight());
+        // 서명의 크기 조정
+        int sigHeight = 100; // 서명의 높이 설정
+        BufferedImage scaledSig1 = scaleImage(sig1, sigHeight);
+        BufferedImage scaledSig2 = scaleImage(sig2, sigHeight);
 
-        // 원본 이미지에 하단 여백을 추가합니다 (여기서는 서명 높이의 두 배를 여백으로 추가합니다).
-        int totalHeight = imageHeight + maxSigHeight * 2;
-        BufferedImage combinedImage = new BufferedImage(imageWidth, totalHeight, BufferedImage.TYPE_INT_RGB);
+        // 전체 이미지의 높이 계산
+        int totalHeight = imageHeight + scaledSig1.getHeight() + 100; // 여유 공간 포함
 
+        BufferedImage combinedImage = new BufferedImage(imageWidth, totalHeight, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = combinedImage.createGraphics();
-        g.setColor(Color.WHITE); // 배경색을 흰색으로 설정합니다.
-        g.fillRect(0, 0, imageWidth, totalHeight); // 새 이미지의 배경을 흰색으로 채웁니다.
-        g.drawImage(image, 0, 0, null); // 원본 이미지를 새 이미지 위에 그립니다.
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, imageWidth, totalHeight);
 
-        // 텍스트를 추가합니다.
-        g.setColor(Color.BLACK);
-        g.setFont(new Font("Arial", Font.BOLD, 20)); // 폰트 설정
-        FontMetrics fm = g.getFontMetrics();
-        String partyAText = partyA + " (인)";
-        String partyBText = partyB + " (인)";
-        int partyATextWidth = fm.stringWidth(partyAText);
-        int partyATextX = (imageWidth - partyATextWidth) / 2;
-        int partyATextY = imageHeight + 40; // 텍스트 위치 조정
-        g.drawString(partyAText, partyATextX, partyATextY);
+        g.drawImage(image, 0, 0, null);
 
-        int partyBTextWidth = fm.stringWidth(partyBText);
-        int partyBTextX = (imageWidth - partyBTextWidth) / 2;
-        int partyBTextY = partyATextY + fm.getHeight() + 10; // 두 번째 텍스트 위치 조정
-        g.drawString(partyBText, partyBTextX, partyBTextY);
+        // 한글 폰트 설정
+        g.setFont(new Font("Malgun Gothic", Font.BOLD, 40));
+        g.setColor(Color.BLACK); // 검정색으로 텍스트 설정
 
-        // 서명 이미지들을 합성합니다.
-        int sig1X = (imageWidth - sig1.getWidth()) / 2;
-        int sig1Y = partyATextY - sig1.getHeight() - 5; // 첫 번째 서명 위치 조정
-        int sig2X = (imageWidth - sig2.getWidth()) / 2;
-        int sig2Y = partyBTextY - sig2.getHeight() - 5; // 두 번째 서명 위치 조정
+        // 텍스트와 서명 그리기
+        int textY = imageHeight + 30; // 텍스트 시작 위치
+        int sigY = imageHeight + 20; // 서명 시작 위치
 
-        g.drawImage(sig1, sig1X, sig1Y, null);
-        g.drawImage(sig2, sig2X, sig2Y, null);
+        drawSignatureNextToText(g, "갑 : " + partyA + " (인)", scaledSig1, 50, textY, sigY);
+        drawSignatureNextToText(g, "을 : " + partyB + " (인)", scaledSig2, 50, textY + 50, sigY + 50);
+
         g.dispose();
-
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ImageIO.write(combinedImage, "png", baos);
         return baos.toByteArray();
+    }
+
+    private static BufferedImage scaleImage(BufferedImage original, int height) {
+        double ratio = (double) height / original.getHeight();
+        int newWidth = (int) (original.getWidth() * ratio);
+        Image scaled = original.getScaledInstance(newWidth, height, Image.SCALE_SMOOTH);
+        BufferedImage newImage = new BufferedImage(newWidth, height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = newImage.createGraphics();
+        g2d.drawImage(scaled, 0, 0, null);
+        g2d.dispose();
+        return newImage;
+    }
+
+    private static void drawSignatureNextToText(Graphics2D g, String text, BufferedImage signature, int x, int textY, int sigY) {
+        g.drawString(text, x, textY);
+        // 서명 이미지 위치 조정
+        int signatureX = x + g.getFontMetrics().stringWidth(text) + 10;
+        g.drawImage(signature, signatureX, sigY - signature.getHeight() / 2, null);
     }
 }

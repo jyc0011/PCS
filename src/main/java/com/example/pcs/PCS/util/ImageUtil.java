@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 public class ImageUtil {
-    public static byte[] composeImage(MultipartFile imageFile, MultipartFile signature1, MultipartFile signature2) throws Exception {
+    public static byte[] composeImage(MultipartFile imageFile, MultipartFile signature1, MultipartFile signature2, String partyA, String partyB) throws Exception {
         InputStream imageStream = imageFile.getInputStream();
         InputStream signature1Stream = signature1.getInputStream();
         InputStream signature2Stream = signature2.getInputStream();
@@ -28,16 +28,32 @@ public class ImageUtil {
         int totalHeight = imageHeight + maxSigHeight * 2;
         BufferedImage combinedImage = new BufferedImage(imageWidth, totalHeight, BufferedImage.TYPE_INT_RGB);
 
-        Graphics g = combinedImage.getGraphics();
+        Graphics2D g = combinedImage.createGraphics();
         g.setColor(Color.WHITE); // 배경색을 흰색으로 설정합니다.
         g.fillRect(0, 0, imageWidth, totalHeight); // 새 이미지의 배경을 흰색으로 채웁니다.
         g.drawImage(image, 0, 0, null); // 원본 이미지를 새 이미지 위에 그립니다.
 
+        // 텍스트를 추가합니다.
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("Arial", Font.BOLD, 20)); // 폰트 설정
+        FontMetrics fm = g.getFontMetrics();
+        String partyAText = partyA + " (인)";
+        String partyBText = partyB + " (인)";
+        int partyATextWidth = fm.stringWidth(partyAText);
+        int partyATextX = (imageWidth - partyATextWidth) / 2;
+        int partyATextY = imageHeight + 40; // 텍스트 위치 조정
+        g.drawString(partyAText, partyATextX, partyATextY);
+
+        int partyBTextWidth = fm.stringWidth(partyBText);
+        int partyBTextX = (imageWidth - partyBTextWidth) / 2;
+        int partyBTextY = partyATextY + fm.getHeight() + 10; // 두 번째 텍스트 위치 조정
+        g.drawString(partyBText, partyBTextX, partyBTextY);
+
         // 서명 이미지들을 합성합니다.
         int sig1X = (imageWidth - sig1.getWidth()) / 2;
-        int sig1Y = imageHeight + (maxSigHeight - sig1.getHeight()) / 2;
+        int sig1Y = partyATextY - sig1.getHeight() - 5; // 첫 번째 서명 위치 조정
         int sig2X = (imageWidth - sig2.getWidth()) / 2;
-        int sig2Y = sig1Y + maxSigHeight + 10; // 첫 번째 서명 아래에 10픽셀 간격으로 두 번째 서명을 위치합니다.
+        int sig2Y = partyBTextY - sig2.getHeight() - 5; // 두 번째 서명 위치 조정
 
         g.drawImage(sig1, sig1X, sig1Y, null);
         g.drawImage(sig2, sig2X, sig2Y, null);

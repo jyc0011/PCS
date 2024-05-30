@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Base64;
-import java.util.List;
+
 
 @Service
 public class ContractService {
@@ -23,12 +23,12 @@ public class ContractService {
 
     public ImageCompositionResult processContract(MultipartFile imageFile, MultipartFile signature1, MultipartFile signature2, String partyA, String partyB) {
         try {
-            byte[] compositeImage = ImageUtil.composeImage(imageFile, signature1, signature2);
+            byte[] compositeImage = ImageUtil.composeImage(imageFile, signature1, signature2, partyA, partyB);
             String base64Image = Base64.getEncoder().encodeToString(compositeImage);
-            String hash = hashImage(base64Image.getBytes());
-            Transaction transaction = new Transaction(partyA, partyB, base64Image, hash);
-            Block newBlock = blockService.createBlock(Arrays.asList(transaction));
-            return new ImageCompositionResult(base64Image, hash, newBlock);
+            String imageHash = hashImage(base64Image.getBytes());
+            Transaction transaction = new Transaction(partyA, partyB, imageHash);
+            Block newBlock = blockService.createBlock(Arrays.asList(transaction),partyA, partyB);
+            return new ImageCompositionResult(base64Image, imageHash, newBlock);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("Failed to process contract", e);

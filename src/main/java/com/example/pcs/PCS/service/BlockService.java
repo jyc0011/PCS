@@ -35,7 +35,7 @@ public class BlockService {
 
     private String getPreviousHash() {
         Block lastBlock = blockRepository.findTopByOrderByIdDesc();
-        return lastBlock != null ? lastBlock.getHash() : "0";
+        return lastBlock != null ? lastBlock.getBlockHash() : "0";
     }
 
     private String calculateProofOfWork(String previousProof) {

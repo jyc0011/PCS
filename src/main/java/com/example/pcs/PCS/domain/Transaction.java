@@ -26,5 +26,4 @@ public class Transaction {
         this.imgHash = imgHash;
     }
 
-    // Additional getters and setters
 }

@@ -42,15 +42,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf((auth) -> auth.disable())
-                .formLogin((auth) -> auth.disable())
-                .httpBasic((auth) -> auth.disable())
+                .csrf((auth) -> auth.disable()) // CSRF 보호 비활성화
+                .formLogin((auth) -> auth.disable())// 폼 기반 로그인 비활성화
+                .httpBasic((auth) -> auth.disable()) // HTTP 기본 인증 비활성화
                 .sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/", "/login", "/signup", "/register", "/log", "/css/**", "/js/**", "/static/**").permitAll()
-                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/", "/login", "/signup", "/register", "/log", "/css/**", "/js/**", "/favicon.ico").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter.class)
                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);

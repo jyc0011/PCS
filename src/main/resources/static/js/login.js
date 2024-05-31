@@ -4,9 +4,14 @@ document.getElementById('loginForm').onsubmit = function (event) {
     let formData = new FormData(this);
     fetch('/login', {
         method: 'POST',
-        body: formData
-    })
-        .then(response => response.json())  // 응답을 JSON 형태로 파싱
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: 'user',
+            password: 'pass'
+        })
+    }).then(response => response.json())  // 응답을 JSON 형태로 파싱
         .then(data => {
             if (data.jwt) {
                 console.log('Login successful', data.jwt);

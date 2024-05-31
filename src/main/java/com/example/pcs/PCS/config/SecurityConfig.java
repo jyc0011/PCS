@@ -2,7 +2,6 @@ package com.example.pcs.PCS.config;
 
 import com.example.pcs.PCS.util.JWTFilter;
 import com.example.pcs.PCS.util.JWTUtil;
-import com.example.pcs.PCS.util.JwtValidationFilter;
 import com.example.pcs.PCS.util.LoginFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -47,7 +46,7 @@ public class SecurityConfig {
                 .formLogin((auth) -> auth.disable())
                 .httpBasic((auth) -> auth.disable())
                 .sessionManagement((session) -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/", "/login", "/signup", "/register", "/log", "/css/**", "/js/**", "/static/**").permitAll()

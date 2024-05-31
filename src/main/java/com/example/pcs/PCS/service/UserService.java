@@ -37,6 +37,7 @@ public class UserService {
             return false;
         }
     }
+
     public User authenticate(String username, String password) {
         User user = userRepository.findByUsername(username);
         if (user != null && bCryptPasswordEncoder.matches(password, user.getPassword())) {

@@ -1,4 +1,4 @@
-document.getElementById('signupForm').onsubmit = function(event) {
+document.getElementById('signupForm').onsubmit = function (event) {
     event.preventDefault();
     let formData = new FormData(this);
 

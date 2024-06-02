@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link href="/css/default.css" rel="stylesheet">
+<head>
+    <link href="/css/default.css" rel="stylesheet">
+</head>
+<body>
 <div class="header" th:fragment="bodyHeader">
-    <ul class="nav nav-pills pull-right">
-        <li><a href="/">Home</a></li>
+    <a href="/" class="logo-link"><h3 class="text-muted text-center logo">PCS</h3></a>
+    <ul class="nav nav-pills authentication-links">
+        <li th:if="${not #authorization.expression('isAuthenticated()')}"><a href="/login">로그인</a></li>
+        <li th:if="${not #authorization.expression('isAuthenticated()')}"><a href="/signup">회원가입</a></li>
+        <li th:if="${#authorization.expression('isAuthenticated()')}"><a href="/logout">로그아웃</a></li>
     </ul>
-    <a href="/"><h3 class="text-muted">PCS</h3></a>
+    <ul class="nav nav-pills general-menu">
+        <li><a href="/about">About PCS</a></li>
+        <li th:if="${#authorization.expression('isAuthenticated()')}"><a href="/contracts">계약</a></li>
+        <li th:if="${#authorization.expression('isAuthenticated()')}"><a href="/check">인증</a></li>
+    </ul>
 </div>
+</body>
+</html>

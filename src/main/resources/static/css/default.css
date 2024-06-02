@@ -1,8 +1,42 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    width: 1400px;
+    margin: auto;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
 .footer {
     margin-top: 30px;
     width: 100%;
     background-color: #724EBF;
     height: 350px;
+    padding-top: 60px;
+    color: #ffffff;
 }
 
 .footer-first-area,
@@ -17,24 +51,18 @@
     margin-top: 30px;
 }
 
-.footer-first-first {
-    width: calc((1200px / 4) - (10px * 3 / 4));
-    /* Adjust width considering margins */
-    height: 190px;
-}
-
+.footer-first-first,
 .footer-first-second,
 .footer-first-third,
 .footer-first-4th {
     width: calc((1200px / 4) - (10px * 3 / 4));
-    /* Same adjustment as above */
     height: 190px;
 }
 
-.footer-first-second > .footer-content,
-.footer-first-third > .footer-content,
-.footer-first-4th > .footer-content {
+.footer-content {
     margin: 0 auto;
+    color: #ffffff;
+    font-size: 16px;
 }
 
 .footer-title {
@@ -42,26 +70,36 @@
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 30px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer a {
+    color: #ffffff;
     text-decoration: none;
 }
 
-.footer-section ul,
-.footer-section li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    /* Remove bullet points */
+.footer ul {
+    list-style-type: none;
+}
+
+.footer li {
+    padding: 5px 0;
+}
+
+.footer__social,
+.footer__social:hover,
+.footer__social:link,
+.footer__social:visited,
+.footer__social:active {
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .footer-section li {
     margin-bottom: 12px;
-}
-
-.footer-content,
-.footer-second-left {
-    color: #ffffff;
-    font-size: 16px;
-    text-decoration: none;
 }
 
 .footer-social-section {
@@ -70,82 +108,59 @@
 
 .footer__social {
     font-size: 1.25rem;
-}
-
-.footer-first-area {
-    padding-top: 60px;
-}
-
-.footer__social,
-.footer__social:hover,
-.footer__social:link,
-.footer__social:visited,
-.footer__social:active,
-.something,
-.something:hover,
-.something:link,
-.something:visited,
-.something:active {
     color: #ffffff;
     text-decoration: none;
 }
 
-/* Basic Reset */
-* {
-    margin: 0;
+.nav,
+.nav-pills {
+    list-style-type: none;
     padding: 0;
-    box-sizing: border-box;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #F2F6FF;
-    padding: 20px;
+.nav li,
+.nav-pills li {
+    display: inline;
+    margin: 0 10px;
 }
 
-.container {
-    width: 1400px;
-    margin: auto;
-    overflow: hidden;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-/* Header and Navigation Styles */
-.header {
+.nav-pills {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.nav {
+    padding: 0;
+    margin: 0;
     list-style-type: none;
 }
 
-.nav li {
-    display: inline;
-    margin-left: 10px;
-}
-
-.nav a {
+.nav a,
+.nav-pills a {
     text-decoration: none;
-    color: #3e2a6b;
+    color: inherit;
     font-weight: bold;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav-pills a:hover {
     text-decoration: underline;
 }
 
-.text-muted {
-    color: #000000;
+.authentication-links {
+    margin-left: auto;
 }
 
-/* Form Styles */
+.general-menu {
+    margin-right: auto;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
 form {
     background: #f8f9fa;
     padding: 20px;
@@ -164,7 +179,7 @@ input[type="file"] {
 
 button[type="submit"] {
     background-color: #F2CA52;
-    color: #000000;
+    color: #000;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -176,16 +191,22 @@ button[type="submit"]:hover {
     background-color: #D9BA82;
 }
 
-/* Utility Classes */
 .pull-right {
     float: right;
 }
 
-/* Preview Box */
 #preview {
     margin-top: 20px;
     padding: 10px;
     border: 1px dashed #ccc;
     background: #F2F6FF;
     border-radius: 5px;
+}
+
+.menu {
+    margin-top: 20px;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+    justify-content: center;
 }

@@ -5,12 +5,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@ResponseBody
 public class MainController {
 
     @GetMapping("/")
-    public String mainP() {
+    public String main() { return "home/home";}
 
-        return "main Controller";
-    }
+    @GetMapping("/about")
+    public String about() { return "home/about";}
+    @GetMapping("/member")
+    public String member() { return "home/member";}
 }

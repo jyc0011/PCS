@@ -9,6 +9,7 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
+    background-color: #F2F6FF;
     padding: 20px;
 }
 
@@ -209,4 +210,72 @@ button[type="submit"]:hover {
     padding: 10px;
     border-radius: 5px;
     justify-content: center;
+}
+
+/* Form Styles Common */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #F2CA52;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #D9BA82;
+}
+
+/* Login Form Placeholder Adjustments */
+#loginForm input {
+    padding: 15px;
+    font-size: 16px;
+}
+
+/* Specific Styling for Login and Signup Headings */
+.login-container h2, .container h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Message Box Styles */
+#signupResult, #message {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+    font-size: 16px;
+}
+
+/* Adjustments for small screens */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    button[type="submit"] {
+        width: calc(100% - 20px);
+    }
 }

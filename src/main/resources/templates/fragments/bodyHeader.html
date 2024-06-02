@@ -7,8 +7,8 @@
 <div class="header" th:fragment="bodyHeader">
     <a href="/" class="logo-link"><h3 class="text-muted text-center logo">PCS</h3></a>
     <ul class="nav nav-pills authentication-links">
-        <li th:if="${not #authorization.expression('isAuthenticated()')}"><a href="/login">로그인</a></li>
-        <li th:if="${not #authorization.expression('isAuthenticated()')}"><a href="/signup">회원가입</a></li>
+        <li th:if="${not #authorization.expression('isAuthenticated()')}"><a href="/log">로그인</a></li>
+        <li th:if="${not #authorization.expression('isAuthenticated()')}"><a href="/register">회원가입</a></li>
         <li th:if="${#authorization.expression('isAuthenticated()')}"><a href="/logout">로그아웃</a></li>
     </ul>
     <ul class="nav nav-pills general-menu">

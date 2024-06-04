@@ -5,16 +5,43 @@
 
 <div class="container">
     <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
-    <div>
-        <form id="verifyForm">
-            <label for="certificateInput">Upload Contract PDF:</label>
-            <input id="certificateInput" name="certificate" required type="file">
-            <label for="imageInput">Upload Contract Image:</label>
-            <input id="imageInput" name="image" required type="file">
-            <button type="submit">Verify Contract</button>
-        </form>
-        <div id="verificationResult"></div>
-        <script src="/js/verify.js"></script>
+    <style>
+        .check-bigcontainer{
+            justify-content: center;
+            display: flex;
+            margin-bottom: 80px;
+        }
+        .check-container{
+            width: 100%;
+            max-width: 500px; /* 폼의 최대 너비를 제한 */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left; /* 텍스트를 왼쪽 정렬 */
+
+        }
+        .check-container label,
+        .check-container input,
+        .check-container button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px; /* 요소 사이에 여백 추가 */
+        }
+    </style>
+    <div class="check-bigcontainer">
+        <div class = "check-container">
+            <form id="verifyForm">
+                <label for="certificateInput">계약서 PDF파일 업로드:</label>
+                <input id="certificateInput" name="certificate" required type="file">
+                <label for="imageInput">계약서 이미지 업로드:</label>
+                <input id="imageInput" name="image" required type="file">
+                <button type="submit">계약 인증하기</button>
+            </form>
+            <div id="verificationResult"></div>
+            <script src="/js/verify.js"></script>
+        </div>
     </div>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </div> <!-- /container -->

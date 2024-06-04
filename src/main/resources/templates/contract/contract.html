@@ -6,17 +6,38 @@
 <div class="container">
 
     <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
-    <div>
-        <form enctype="multipart/form-data" id="uploadForm">
-            <input id="imageInput" name="image" required type="file">
-            <input id="signatureInput1" name="signature1" required type="file">
-            <input id="signatureInput2" name="signature2" required type="file">
-            <input id="partyA" name="partyA" placeholder="Enter Party A's Name" required type="text">
-            <input id="partyB" name="partyB" placeholder="Enter Party B's Name" required type="text">
-            <button type="submit">Upload and Process</button>
-        </form>
-        <div id="preview"></div>
-        <script src="/js/upload.js"></script>
+    <style>
+        .jwajwa-container{
+            display: flex;
+            justify-content: center;
+        }
+        .file-container{
+
+            width: 100%;
+            max-width: 500px; /* 폼의 최대 너비를 제한 */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left; /* 텍스트를 왼쪽 정렬 */
+
+
+        }
+    </style>
+    <div class = "jwajwa-container">
+        <div class = "file-container">
+            <form enctype="multipart/form-data" id="uploadForm">
+                <input id="imageInput" name="image" required type="file">
+                <input id="signatureInput1" name="signature1" required type="file">
+                <input id="signatureInput2" name="signature2" required type="file">
+                <input id="partyA" name="partyA" placeholder="계약자 성함을 입력해주세요" required type="text">
+                <input id="partyB" name="partyB" placeholder="계약자 성함을 입력해주세요" required type="text">
+                <button type="submit">업로드 및 진행</button>
+            </form>
+            <div id="preview"></div>
+            <script src="/js/upload.js"></script>
+        </div>
     </div>
     <div th:insert="~{fragments/footer :: footer}"></div>
 </div> <!-- /container -->

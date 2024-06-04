@@ -21,12 +21,13 @@ public class UserController {
 
     @GetMapping("/register")
     public String showsignup() {
-        return "user/signup";  // src/main/resources/templates/check/check.html
+        return "user/signup";
     }
 
 
     @PostMapping("/signup")
     public ResponseEntity<?> handleSignup(@ModelAttribute User user) {
+        System.out.println("Username: " + user.getUsername() + ", Password: " + user.getPassword());
         boolean success = userService.registerNewUser(user);
         if (success) {
             return ResponseEntity.ok().body("{\"message\": \"User registered successfully.\"}");
@@ -37,12 +38,13 @@ public class UserController {
 
     @GetMapping("/log")
     public String showlogin() {
+        System.out.println("loginpage");
         return "user/login";
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
-        System.out.println("Received login request for username: " + user.getUsername());
+        System.out.println("Username: " + user.getUsername() + ", Password: " + user.getPassword());
         User authenticatedUser = userService.authenticate(user.getUsername(), user.getPassword());
         if (authenticatedUser != null) {
             String token = jwtUtil.generateToken(authenticatedUser.getUsername());
@@ -65,6 +67,14 @@ public class UserController {
         }
 
     }
+    @GetMapping("/findid")
+    public String find_id() {
+        return "user/findid";
+    }
 
+    @GetMapping("/findpwd")
+    public String find_pwd() {
+        return "user/findpw";
+    }
 }
 

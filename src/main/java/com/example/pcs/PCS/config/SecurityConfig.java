@@ -49,7 +49,7 @@ public class SecurityConfig {
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/", "/contract", "/check","/about","/member","/login", "/signup", "/register", "/log", "/css/**", "/js/**","/image/**", "/favicon.ico").permitAll()
+                        .requestMatchers("/","/findid", "/findpwd", "/contract", "/check","/about","/member","/login", "/signup", "/register", "/log", "/css/**", "/js/**","/image/**", "/favicon.ico").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter.class)
                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtil), UsernamePasswordAuthenticationFilter.class);

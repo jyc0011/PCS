@@ -1,6 +1,7 @@
 .jwajwa-container{
     display: flex;
     justify-content: center;
+    margin:0 auto
 }
 .file-container{
 
@@ -9,7 +10,5 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left; /* 텍스트를 왼쪽 정렬 */
 }

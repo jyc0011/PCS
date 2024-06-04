@@ -1,28 +1,31 @@
-document.getElementById('loginForm').onsubmit = function (event) {
-    event.preventDefault();
-    let username = document.getElementById('username').value;
-    let password = document.getElementById('password').value;
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
 
-    fetch('/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-    }).then(response => {
-        console.log("HTTP status code:", response.status);
-        if (!response.ok) throw new Error('Login failed: ' + response.statusText);
-        return response.json();
-    }).then(data => {
-        console.log("Response data:", data);
-        if (data.jwt) {
-            console.log('Login successful', data.jwt);
-            window.location.href = '/contract';
-        } else {
-            alert('Login failed: ' + data.message);
-        }
-    }).catch(error => {
-        console.error('Error during login:', error);
-        alert(error.message);
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent the form from submitting via the browser
+
+        const formData = {
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value
+        };
+
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    window.location.href = '/dashboard';  // Redirect to dashboard if login is successful
+                } else {
+                    alert('Login failed: ' + data.message);  // Show error message
+                }
+            })
+            .catch(error => {
+                console.error('Error during login:', error);
+            });
     });
-};
+});

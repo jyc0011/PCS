@@ -2,6 +2,7 @@ package com.example.pcs.PCS.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -10,6 +11,7 @@ import java.util.Collections;
 
 @Data
 @Entity
+@RequiredArgsConstructor
 @Table(name = "users")
 public class User {
     @Id
@@ -24,17 +26,6 @@ public class User {
 
     @Column(nullable = false, unique = true, length = 50)
     private String email;
-
-    // 기본 생성자
-    public User() {
-    }
-
-    // 매개변수를 받는 생성자
-    public User(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
         // Returning authority based on the role field

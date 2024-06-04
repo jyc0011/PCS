@@ -1,34 +1,76 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/header :: header}"></head>
-<link href="/css/signup.css" rel="stylesheet">
+<head th:replace="~{fragments/header :: header}">
+    <link href="/css/signup.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
 <body>
 
 <div class="container">
     <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
-    <div class="jwa-container">
+    <main class="jwa-container">
         <div class="form-container">
-            <h2>회원가입</h2>
-            <form id="signupForm">
+            <h2>REGISTER</h2>
+            <form id="signupForm" th:action="@{/createOk}" method="post">
                 <div class="form-group user">
-                    <label for="username">사용자명:</label>
-                    <input id="username" placeholder="등록하고 싶은 사용자명을 입력해주세요" required type="text" class="username2">
+                    <label for="username">NAME:</label>
+                    <input id="username" name="username" placeholder="Enter your name" required type="text" class="form-control">
                 </div>
-                <div class="form-group email">
-                    <label for="email">이메일:</label>
-                    <input id="email" placeholder="사용하실 이메일을 등록해주세요" required type="email">
+                <div class="form-group id">
+                    <label for="userid">ID:</label>
+                    <input id="userid" name="userid" placeholder="Choose your ID" required type="text" class="form-control">
+                    <button id="idcheck" class="btn btn-outline-secondary">ID CHECK</button>
                 </div>
                 <div class="form-group password">
-                    <label for="password">비밀번호:</label>
-                    <input id="password" placeholder="사용하실 비밀번호를 입력해주세요" required type="password">
+                    <label for="password">PASSWORD:</label>
+                    <input id="password" name="userpwd" placeholder="Enter your password" required type="password" class="form-control">
                 </div>
-                <div class="form-group submitbutton">
-                    <button type="submit">회원가입</button>
+                <div class="form-group password">
+                    <label for="passwordConfirm">CHECK PASSWORD:</label>
+                    <input id="passwordConfirm" name="userpwdCheck" placeholder="Confirm your password" required type="password" class="form-control">
+                </div>
+                <div class="form-group email">
+                    <label for="email">USER EMAIL:</label>
+                    <input id="email" name="email" placeholder="Enter your email" required type="email" class="form-control">
+                    <button id="sendcode" class="btn btn-outline-secondary">SEND</button>
+                </div>
+                <div id="termsCheck">
+                    <div> <br> Terms of Use: </div>
+                    <div class="terms-content">
+                        <h2>Membership Terms and Conditions</h2>
+                        <br>
+                        <h3>Article 1 (Purpose)</h3>
+                        <p>The purpose of these terms and conditions is to regulate members’ rights, obligations and responsibilities in relation to the use of online services provided by [Company Name] (hereinafter “Company” or “Service Provider”).</p>
+                        <br>
+                        <h3>Article 2 (Definitions)</h3>
+                        <ol>
+                            <li>“Service” means all online services provided by the Company.</li>
+                            <li>“Member” means a person who has provided personal information to the Company and entered into a service agreement with the Company in accordance with these Terms and Conditions.</li>
+                        </ol>
+                        <br>
+                        <h3>Article 3 (Effectiveness and Change of Terms of Use)</h3>
+                        <ol>
+                            <li>These terms and conditions take effect when you agree to them when registering as a member.</li>
+                            <li>The company reserves the right to change these terms and conditions, and the changed terms and conditions will become effective upon notification within the service or via email. If members do not agree to the changed terms and conditions, they may stop using the service.</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <label style="cursor: pointer"><input type="checkbox" id="terms1"
+                                                              style="margin-right: 5px; cursor: pointer"/>Agree to Terms of Use<strong>(essential)</strong></label>
+                    </div>
+                    <div>
+                        <label style="cursor: pointer"><input type="checkbox" id="terms2"
+                                                              style="margin-right: 5px; cursor: pointer"/>Consent to collection of personal information<strong>(essential)</strong></label>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="submit" value="JOIN" id="join" class="btn btn-warning submitBtn"/>
+                    <input type="button" value="CANCEL" id="cancel" class="btn btn-warning submitBtn"/>
                 </div>
             </form>
-            <div id="signupResult"></div>
         </div>
-    </div>
+    </main>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
 

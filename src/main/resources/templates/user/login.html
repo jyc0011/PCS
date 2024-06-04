@@ -1,22 +1,42 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/header :: header}"></head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link href="/css/login.css" rel="stylesheet">
 <body>
 
 <div class="container">
     <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
-    <div class="login-container">
-        <div class="mycontainer">
-            <h2>로그인</h2>
-            <form id="loginForm" method="POST" class="loginForm">
-                <input id="username" placeholder="사용자명을 입력해주세요" required type="text" class="username">
-                <input id="password" placeholder="비밀번호를 입력해주세요" required type="password" class="password">
-                <button type="submit">로그인</button>
-            </form>
-            <div id="message"></div>
+    <main>
+        <div class="box">
+            <img src="/image/img1.png" alt="Login Image">
+            <div class="form-container">
+                <h2 style="text-align: center">WELCOME BACK!</h2>
+                <br>
+                <form id="loginForm">
+                    <div class="input-container">
+                        <input type="text" name="username" id="username" required placeholder=" ">
+                        <label for="username">ID</label>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" name="password" id="password" required placeholder=" ">
+                        <label for="password">PW</label>
+                    </div>
+                    <button type="submit" name="login" id="login" class="btn btn-primary submitBtn">LOGIN</button>
+                </form>
+                <hr>
+                <div id="link">
+                    <ul>
+                        <li><a href="/register">REGISTER</a></li>
+                        <li>|</li>
+                        <li><a href="/findid">FIND ID</a></li>
+                        <li>|</li>
+                        <li><a href="/findpwd">FIND PW</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
 <script src="/js/login.js"></script>

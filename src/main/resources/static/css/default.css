@@ -1,24 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=M+PLUS+1&family=Nanum+Gothic&family=Noto+Sans+HK&family=Noto+Sans+SC&family=Noto+Sans+TC&family=Titillium+Web&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family:'Titillium Web', 'M PLUS 1','Noto Sans HK','Noto Sans SC','Noto Sans TY','Nanum Gothic', serif !important;
     line-height: 1.6;
     color: #333;
-    background-color: #F2F6FF;
-    padding: 20px;
+    padding: 20px 0 0 0;
 }
 
 .container {
-    width: 1400px;
-    margin: auto;
     overflow: hidden;
     background: #fff;
-    padding: 20px;
     border-radius: 8px;
+    margin:0 auto;
 }
 
 .header {
@@ -277,4 +275,8 @@ button[type="submit"]:hover {
     button[type="submit"] {
         width: calc(100% - 20px);
     }
+}
+
+main{
+    margin:0 auto;
 }

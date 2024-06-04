@@ -1,16 +1,180 @@
-.jwa-container {
+body {
+    margin: 0 auto;
+}
+
+main {
+    width: 1200px;
+    margin: 30px auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#username, #userid, #userpwd, #userpwdCheck, #email, #authenticate {
+    width: 470px;
+    height: 40px;
+    margin: 5px auto;
+}
+
+#join, #cancel {
+    width: 100px;
+    height: 40px;
+    margin: 40px auto;
+}
+
+#create_Form {
+    margin-left: 50px;
+}
+
+#checkcode, #idcheck, #sendcode {
+    margin: 0 20px;
+    width: 100px;
+}
+
+
+.lang {
+    margin: 10px auto;
+}
+
+.input-container {
+    position: relative;
+    margin-top: 25px;
+}
+
+.input-container:nth-child(1) {
+    margin-top: 0;
+}
+
+.input-container label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    pointer-event: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.input-container input {
+    border: 0;
+    border-bottom: 1px solid #332913;
+    padding: 8px 0 5px 0;
+    font-size: 16px;
+}
+
+.input-container input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #e74c3c;
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+    top: -12px;
+    font-size: 12px;
 
 }
 
-.form-container {
-    width: 100%;
-    max-width: 400px; /* 폼의 최대 너비를 제한 */
-    padding: 20px;
+.submitBtn {
+    background-color: #ffe3a0;
+    border: none;
+    color: black;
+    outline: none;
+    border: 0;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type=checkbox], input[type=radio] {
+    margin: 0 0 0 20px;
+    padding: 0;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.select {
+    -o-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 130px;
+    height: 38px;
+    padding: 5px 30px 5px 20px;
+    border-radius: 4px;
+    outline: 0 none;
+    border: 2px solid #332913;
+    cursor: pointer;
+}
+
+.select option {
+    background: white;
+    padding: 3px 0;
+}
+
+#termsCheck {
+    margin-top: 30px;
+}
+
+.col-sm-10 {
+    margin-left: 20px;
+}
+
+.btn-outline-secondary {
+    width: 130px;
+    margin: 5px 10px 0 0;
+    color: black;
+    background-color: white;
+    border-width: 2px;
+    border-color: #332913;
+}
+
+.btn-check:checked + .btn-outline-secondary {
+    color: black;
+    background-color: #FFE3A1;
+}
+.terms-content {
+    width: 600px;
+    height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left; /* 텍스트를 왼쪽 정렬 */
+    border-radius: 4px;
+    padding: 10px;
+}
+
+/* Flexbox alignment for the join and cancel buttons */
+.form-group.submitbutton {
+    justify-content: center; /* Centering buttons within their group */
+}
+
+button, .btn {
+    flex-grow: 1;
+    max-width: 200px; /* Standard width for all buttons */
+    height: 40px; /* Ensuring all buttons match input height */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px; /* Padding reduced for aesthetic fit */
+    margin-left: 10px; /* Space between input and button */
 }

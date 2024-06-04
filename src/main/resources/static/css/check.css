@@ -1,0 +1,23 @@
+.check-bigcontainer{
+    justify-content: center;
+    display: flex;
+    margin-bottom: 80px;
+}
+.check-container{
+    width: 100%;
+    max-width: 500px; /* 폼의 최대 너비를 제한 */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left; /* 텍스트를 왼쪽 정렬 */
+
+}
+.check-container label,
+.check-container input,
+.check-container button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px; /* 요소 사이에 여백 추가 */
+}

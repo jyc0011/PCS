@@ -1,46 +1,12 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/header :: header}"></head>
+<link href="/css/login.css" rel="stylesheet">
 <body>
 
 <div class="container">
     <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
     <div class="login-container">
-        <style>
-            .login-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-            }
-            .mycontainer {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 20px;
-                border: 1px solid #ccc;
-                border-radius: 10px;
-                background-color: #f9f9f9;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                text-align: center;
-            }
-            .username, .password {
-                width: 100%;
-                max-width: 300px; /* 최대 너비를 줄여서 가로 길이 제한 */
-                height: 40px;
-                margin-bottom: 10px;
-                padding: 5px;
-                text-align: center;
-            }
-            .loginForm button {
-                width: 100%;
-                max-width: 300px; /* 최대 너비를 줄여서 가로 길이 제한 */
-                height: 40px;
-                padding: 5px;
-                text-align: center;
-            }
-        </style>
         <div class="mycontainer">
             <h2>로그인</h2>
             <form id="loginForm" method="POST" class="loginForm">
@@ -53,6 +19,6 @@
     </div>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
-<script src="login.js"></script>
+<script src="/js/login.js"></script>
 </body>
 </html>

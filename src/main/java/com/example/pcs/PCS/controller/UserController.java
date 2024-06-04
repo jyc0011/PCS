@@ -42,14 +42,17 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
+        System.out.println("Received login request for username: " + user.getUsername());
         User authenticatedUser = userService.authenticate(user.getUsername(), user.getPassword());
         if (authenticatedUser != null) {
             String token = jwtUtil.generateToken(authenticatedUser.getUsername());
-            System.out.println("success");
+            System.out.println("Token generated: " + token);
+            System.out.println("Returning response with token");
             return ResponseEntity.ok().body(new AuthenticationResponse(token, "Login successful."));
+        } else {
+            System.out.println("Authentication failed for username: " + user.getUsername());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new AuthenticationResponse(null, "Authentication failed."));
         }
-        System.out.println("Fail");
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new AuthenticationResponse(null, "Authentication failed."));
     }
 
     class AuthenticationResponse {

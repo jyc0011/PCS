@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}"></head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="/css/findpw.css" rel="stylesheet">
+<body>
+<div class="container">
+    <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
+<main>
+    <div class="box">
+        <img src="/image/img1.png" alt="Login Image">
+        <div class="form-container">
+            <h2 style="text-align: center">FIND PASSWORD</h2>
+            <br>
+            <form method="post" id="find_pwd_form">
+                <div class="input-container">
+                    <input type="text" name="userid" id="userid" class="inputs" required>
+                    <label>USER ID</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="email" id="email" class="inputs" required>
+                    <label>USER EMAIL</label>
+                </div>
+                <button type="submit" name="find" id="find" class="submitBtn">SEND AUTHENTICATION CODE</button>
+
+                <div id="result" style="text-align: center; color: #332913; margin-top: 5px"></div>
+                <div id="verification" style="display: none; margin-top: 30px">
+                    <div class="input-container">
+                        <input type="text" name="code" id="code" class="inputs" required>
+                        <label>ENTER AUTHENTICATION CODE</label>
+                    </div>
+                    <input type="submit" id="verifybtn" class="submitBtn"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</div>
+<script src="/js/findpw.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}"></head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link href="/css/findid.css" rel="stylesheet">
+<body>
+<div class="container">
+    <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
+<main>
+    <div class="box">
+        <img src="/image/img1.png" alt="Login Image">
+        <div class="form-container">
+            <h2 style="text-align: center">FIND ID</h2>
+            <br>
+            <form method="post" id="find_id_form">
+                <div class="input-container">
+                    <input type="text" name="username" id="username" required>
+                    <label>USER NAME</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="email" id="email" required>
+                    <label>USER EMAIL</label>
+                </div>
+                <button type="submit" name="find" id="find" class="submitBtn">FIND ID</button>
+            </form>
+            <div id="finded">
+                <hr>
+                <p id="result"></p>
+                <input type="button" value="GO TO LOGIN PAGE" class="submitBtn" id="back"/>
+                <input type="button" value="FIND PASSWORD" class="submitBtn" id="find_pwd"/>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="~{fragments/footer :: footer}"></div>
+</div>
+<script src="/js/findid.js"></script>
+</body>
+</html>

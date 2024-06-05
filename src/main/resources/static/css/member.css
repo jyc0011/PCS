@@ -23,6 +23,7 @@
     margin-left: 20px; /* 이미지의 시작점을 통일 */
 }
 .person-info {
+    padding-top:30px;
     margin-left: 20px; /* 이미지와 텍스트 사이의 간격 조절 */
     font-size: 18px; /* 글꼴 크기 설정 */
 }

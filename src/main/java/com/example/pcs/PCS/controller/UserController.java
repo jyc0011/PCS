@@ -1,5 +1,6 @@
 package com.example.pcs.PCS.controller;
 
+import com.example.pcs.PCS.domain.ImageCompositionResult;
 import com.example.pcs.PCS.domain.User;
 import com.example.pcs.PCS.service.UserService;
 import com.example.pcs.PCS.util.JWTUtil;
@@ -7,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -41,32 +44,12 @@ public class UserController {
         System.out.println("loginpage");
         return "user/login";
     }
-
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
-        System.out.println("Username: " + user.getUsername() + ", Password: " + user.getPassword());
-        User authenticatedUser = userService.authenticate(user.getUsername(), user.getPassword());
-        if (authenticatedUser != null) {
-            String token = jwtUtil.generateToken(authenticatedUser.getUsername());
-            System.out.println("Token generated: " + token);
-            System.out.println("Returning response with token");
-            return ResponseEntity.ok().body(new AuthenticationResponse(token, "Login successful."));
-        } else {
-            System.out.println("Authentication failed for username: " + user.getUsername());
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new AuthenticationResponse(null, "Authentication failed."));
-        }
+        // Assuming authentication is handled by LoginFilter and token is set in the header
+        return ResponseEntity.ok().build();  // Simply return OK status, token should be in the header already
     }
 
-    class AuthenticationResponse {
-        private String jwt;
-        private String message;
-
-        public AuthenticationResponse(String jwt, String message) {
-            this.jwt = jwt;
-            this.message = message;
-        }
-
-    }
     @GetMapping("/findid")
     public String find_id() {
         return "user/findid";
@@ -76,5 +59,6 @@ public class UserController {
     public String find_pwd() {
         return "user/findpw";
     }
+
 }
 

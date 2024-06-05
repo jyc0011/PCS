@@ -14,13 +14,16 @@ document.getElementById('verifyForm').onsubmit = function (event) {
         })
         .then(data => {
             console.log('Response data:', data); // 추가하여 응답 데이터를 출력
-            let resultMessage = data.match ? 'Contract is valid.' : 'Contract is invalid.';
+            let resultMessage = data.match ? '계약서가 원본과 동일합니다' : '계약서와 원본이 일치하지 않습니다';
             console.log(data.match);
-            console.log(resultMessage);
-            document.getElementById('verificationResult').innerText = resultMessage;
+            alert(resultMessage);
+            // console.log(resultMessage);
+            // document.getElementById('verificationResult').innerText = resultMessage;
         })
         .catch(error => {
             console.error('Error:', error);
-            document.getElementById('verificationResult').innerText = 'Failed to verify the contract.';
+            alert("계약서를 읽어오는데 실패했습니다");
+            // console.log(error);
+            // document.getElementById('verificationResult').innerText = '계약서를 읽어오는데 실패했습니다';
         });
 };

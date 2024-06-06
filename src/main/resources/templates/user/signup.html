@@ -9,35 +9,39 @@
 
 <div class="container">
     <div th:replace="~{fragments/bodyHeader :: bodyHeader}"></div>
-    <main class="jwa-container">
+    <main class="jwa-container" style="width: 1000px;">
         <div class="form-container">
             <h2>REGISTER</h2>
             <form id="signupForm" th:action="@{/createOk}" method="post">
                 <div class="form-group user">
                     <label for="username">NAME:</label>
-                    <input id="username" name="username" placeholder="Enter your name" required type="text" class="form-control">
+                    <input id="username" name="username" placeholder="Enter your name" required type="text" style="width: 940px;" class="form-control">
                 </div>
                 <div class="form-group id">
                     <label for="userid">ID:</label>
-                    <input id="userid" name="userid" placeholder="Choose your ID" required type="text" class="form-control">
-                    <button id="idcheck" class="btn btn-outline-secondary">ID CHECK</button>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <input id="userid" name="userid" placeholder="Choose your ID" required type="text" style="width: 800px" class="form-control">
+                        <button id="idcheck" class="btn btn-outline-secondary" style="height:35px; padding:0 10px;">ID CHECK</button>
+                    </div>
                 </div>
                 <div class="form-group password">
                     <label for="password">PASSWORD:</label>
-                    <input id="password" name="userpwd" placeholder="Enter your password" required type="password" class="form-control">
+                    <input id="password" name="userpwd" placeholder="Enter your password" required type="password" style="width: 940px;"class="form-control">
                 </div>
                 <div class="form-group password">
                     <label for="passwordConfirm">CHECK PASSWORD:</label>
-                    <input id="passwordConfirm" name="userpwdCheck" placeholder="Confirm your password" required type="password" class="form-control">
+                    <input id="passwordConfirm" name="userpwdCheck" placeholder="Confirm your password" required type="password" style="width: 940px;" class="form-control">
                 </div>
                 <div class="form-group email">
                     <label for="email">USER EMAIL:</label>
-                    <input id="email" name="email" placeholder="Enter your email" required type="email" class="form-control">
-                    <button id="sendcode" class="btn btn-outline-secondary">SEND</button>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <input id="email" name="email" placeholder="Enter your email" required type="email" style="width: 800px" class="form-control">
+                        <button id="sendcode" class="btn btn-outline-secondary" style="height:35px; padding: 0 20px;">SEND</button>
+                    </div>
                 </div>
                 <div id="termsCheck">
                     <div> <br> Terms of Use: </div>
-                    <div class="terms-content">
+                    <div class="terms-content" style="box-sizing: border-box; width: 940px; height:200px; padding: 30px; overflow: auto;">
                         <h2>Membership Terms and Conditions</h2>
                         <br>
                         <h3>Article 1 (Purpose)</h3>
@@ -64,9 +68,9 @@
                                                               style="margin-right: 5px; cursor: pointer"/>Consent to collection of personal information<strong>(essential)</strong></label>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center;">
-                    <input type="submit" value="JOIN" id="join" class="btn btn-warning submitBtn"/>
-                    <input type="button" value="CANCEL" id="cancel" class="btn btn-warning submitBtn"/>
+                <div style="margin-top:30px; display: flex; justify-content: space-around; align-items: center;">
+                    <input type="submit" value="JOIN" id="join" style="height:35px; padding: 0 20px;" class="btn btn-warning submitBtn"/>
+                    <input type="button" value="CANCEL" id="cancel" style="height:35px; padding: 0 20px;" class="btn btn-warning submitBtn"/>
                 </div>
             </form>
         </div>

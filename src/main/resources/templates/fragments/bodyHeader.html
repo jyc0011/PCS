@@ -4,19 +4,22 @@
     <link href="/css/default.css" rel="stylesheet">
 </head>
 <body>
-<div class="header" th:fragment="bodyHeader" style="width: 1200px; margin: 0 auto;">
+<div class="header" th:fragment="bodyHeader" style="width: 1200px; margin: 50px auto;">
     <a href="/" class="logo-link"><h3 class="text-muted text-center logo">PCS</h3></a>
-    <ul class="nav nav-pills authentication-links">
-        <li th:if="${not #authorization.expression('isAuthenticated()')}"><a href="/log">LOGIN</a></li>
-        <li th:if="${not #authorization.expression('isAuthenticated()')}"><a href="/register">REGISTER</a></li>
-        <li th:if="${#authorization.expression('isAuthenticated()')}"><a href="/logout">LOGOUT</a></li>
-    </ul>
-    <ul class="nav nav-pills general-menu">
-        <li><a href="/about">About PCS</a></li>
-        <li><a href="/member">PCS Member</a></li>
-        <li><a href="/contract">Contract</a></li>
-        <li><a href="/check">Check Up</a></li>
-    </ul>
+    <div style="display: flex; width: 1200px; justify-content: space-between; margin-top: 30px; ">
+        <ul class="nav nav-pills general-menu">
+            <li style="margin-right: 30px;"><a href="/about">About PCS</a></li>
+            <li style="margin-right: 30px;"><a href="/member">PCS Member</a></li>
+            <li style="margin-right: 30px;"><a href="/contract">Contract</a></li>
+            <li><a href="/check">Check Up</a></li>
+        </ul>
+        <ul class="nav nav-pills authentication-links">
+            <li th:if="${not #authorization.expression('isAuthenticated()')}" style="margin-right: 30px;"><a href="/log">LOGIN</a></li>
+            <li th:if="${not #authorization.expression('isAuthenticated()')}"><a href="/register">REGISTER</a></li>
+            <li th:if="${#authorization.expression('isAuthenticated()')}"><a href="/logout">LOGOUT</a></li>
+        </ul>
+    </div>
+
 </div>
 </body>
 </html>
